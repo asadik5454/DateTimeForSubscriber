@@ -1,4 +1,4 @@
-package com.example.datetimeforsubscriber.controller.dto;
+package com.example.datetimeforsubscriber.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
