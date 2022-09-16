@@ -5,6 +5,7 @@ import com.example.datetimeforsubscriber.model.DateTimeModel;
 import com.example.datetimeforsubscriber.repo.DateTimeRepo;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -14,15 +15,14 @@ import java.util.Map;
 @RequestMapping("")
 public class DateTimeController {
     private final DateTimeRepo dateTimeRepo;
-
+    private  Clock clock;
     public DateTimeController(DateTimeRepo dateTimeRepo) {
         this.dateTimeRepo = dateTimeRepo;
     }
 
     @PostMapping
     public Map<String,Object> getDate(@RequestBody USSDrequestDto ussDrequestDto) {
-        String date = DateTimeFormatter.ofPattern("yyyy-dd-MM hh:mm:ss").format(LocalDateTime.now());
-
+        String date = DateTimeFormatter.ofPattern("yyyy-dd-MM HH:mm:ss").format(LocalDateTime.now());
 
         DateTimeModel dateTimeModel = new DateTimeModel();
         dateTimeModel.setNumber(ussDrequestDto.getMsisdn());
