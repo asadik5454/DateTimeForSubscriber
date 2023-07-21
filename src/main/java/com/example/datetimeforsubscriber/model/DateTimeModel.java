@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "date_time")
+@Table(name = "date_time_new")
 public class DateTimeModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,8 @@ public class DateTimeModel {
 
     @Column(name = "response", length = 150)
     private String response;
-
+    @Column(name = "sms_is_sended", length = 150)
+    private Boolean isSend=false;
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", nullable = false)
     private LocalDateTime createdAt;
